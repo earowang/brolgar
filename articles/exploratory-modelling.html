@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">brolgar</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5.9000</span>
       </span>
     </div>
 
@@ -107,22 +107,20 @@
 <p><code>brolgar</code> provides a helper function to help with this, called <code><a href="../reference/key_slope.html">key_slope()</a></code>.</p>
 <p><code><a href="../reference/key_slope.html">key_slope()</a></code> returns the intercept and slope estimate for each key, given a linear model formula. We can get the number of observations, and slope information for each individual to identify those that are decreasing over time.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="../reference/key_slope.html">key_slope</a></span>(wages,ln_wages <span class="op">~</span><span class="st"> </span>xp)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Warning: `cols` is now required.</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; Please use `cols = c(coef_tbl)`</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; # A tibble: 888 x 3</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;       id .intercept .slope_xp</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  1    31       1.41    0.101 </span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  2    36       2.04    0.0588</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  3    53       2.29   -0.358 </span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  4   122       1.93    0.0374</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  5   134       2.03    0.0831</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  6   145       1.59    0.0469</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  7   155       1.66    0.0867</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt;  8   173       1.61    0.100 </span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt;  9   206       1.73    0.180 </span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 10   207       1.62    0.0884</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; # … with 878 more rows</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; # A tibble: 888 x 3</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt;       id .intercept .slope_xp</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt;    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt;  1    31       1.41    0.101 </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;  2    36       2.04    0.0588</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;  3    53       2.29   -0.358 </span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt;  4   122       1.93    0.0374</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt;  5   134       2.03    0.0831</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt;  6   145       1.59    0.0469</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;  7   155       1.66    0.0867</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;  8   173       1.61    0.100 </span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;  9   206       1.73    0.180 </span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 10   207       1.62    0.0884</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; # … with 878 more rows</span></a></code></pre></div>
 <p>We can then join these summaries back to the data:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; </span></a>
@@ -135,25 +133,23 @@
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;     intersect, setdiff, setequal, union</span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">wages_slope &lt;-<span class="st"> </span><span class="kw"><a href="../reference/key_slope.html">key_slope</a></span>(wages,ln_wages <span class="op">~</span><span class="st"> </span>xp) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(wages, <span class="dt">by =</span> <span class="st">"id"</span>) </a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt; Warning: `cols` is now required.</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt; Please use `cols = c(coef_tbl)`</span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">wages_slope</a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; # A tibble: 6,402 x 11</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;       id .intercept .slope_xp ln_wages    xp   ged xp_since_ged black</span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt; &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;  1    31       1.41    0.101      1.49 0.015     1        0.015     0</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;  2    31       1.41    0.101      1.43 0.715     1        0.715     0</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;  3    31       1.41    0.101      1.47 1.73      1        1.73      0</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;  4    31       1.41    0.101      1.75 2.77      1        2.77      0</span></a>
-<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;  5    31       1.41    0.101      1.93 3.93      1        3.93      0</span></a>
-<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt;  6    31       1.41    0.101      1.71 4.95      1        4.95      0</span></a>
-<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt;  7    31       1.41    0.101      2.09 5.96      1        5.96      0</span></a>
-<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt;  8    31       1.41    0.101      2.13 6.98      1        6.98      0</span></a>
-<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt;  9    36       2.04    0.0588     1.98 0.315     1        0.315     0</span></a>
-<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; 10    36       2.04    0.0588     1.80 0.983     1        0.983     0</span></a>
-<a class="sourceLine" id="cb3-29" data-line-number="29"><span class="co">#&gt; # … with 6,392 more rows, and 3 more variables: hispanic &lt;int&gt;,</span></a>
-<a class="sourceLine" id="cb3-30" data-line-number="30"><span class="co">#&gt; #   high_grade &lt;int&gt;, unemploy_rate &lt;dbl&gt;</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">wages_slope</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; # A tibble: 6,402 x 11</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt;       id .intercept .slope_xp ln_wages    xp   ged xp_since_ged black</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt;    &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt; &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt;  1    31       1.41    0.101      1.49 0.015     1        0.015     0</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;  2    31       1.41    0.101      1.43 0.715     1        0.715     0</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;  3    31       1.41    0.101      1.47 1.73      1        1.73      0</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;  4    31       1.41    0.101      1.75 2.77      1        2.77      0</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;  5    31       1.41    0.101      1.93 3.93      1        3.93      0</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt;  6    31       1.41    0.101      1.71 4.95      1        4.95      0</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"><span class="co">#&gt;  7    31       1.41    0.101      2.09 5.96      1        5.96      0</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">#&gt;  8    31       1.41    0.101      2.13 6.98      1        6.98      0</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25"><span class="co">#&gt;  9    36       2.04    0.0588     1.98 0.315     1        0.315     0</span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"><span class="co">#&gt; 10    36       2.04    0.0588     1.80 0.983     1        0.983     0</span></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"><span class="co">#&gt; # … with 6,392 more rows, and 3 more variables: hispanic &lt;int&gt;,</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28"><span class="co">#&gt; #   high_grade &lt;int&gt;, unemploy_rate &lt;dbl&gt;</span></a></code></pre></div>
 <p>And highlight those individuals with a negative slope using <code>gghighlight</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gghighlight)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; Loading required package: ggplot2</span></a>
@@ -231,7 +227,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
